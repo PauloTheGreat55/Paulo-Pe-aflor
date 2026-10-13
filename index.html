@@ -3,46 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Paulo Penaflor - Virtual Assistant & Digital Communication Specialist Portfolio">
-    <title>Paulo Penaflor | Virtual Assistant & Digital Communication Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Paulo Valeroso Peñaflor - Virtual Assistant & AI-Powered Digital Marketing Specialist">
+    <title>Paulo Valeroso Peñaflor | Virtual Assistant</title>
+
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        /* ========== CSS VARIABLES & ROOT STYLES ========== */
+        /* ========== CSS VARIABLES ========== */
         :root {
-            /* Dark Theme Colors */
-            --bg-primary: #0a0e27;
-            --bg-secondary: #131829;
-            --bg-card: #1a1f3a;
-            --bg-card-hover: #1f2544;
+            /* Warm Monochrome Palette */
+            --color-canvas: #FBFBFA;
+            --color-surface: #FFFFFF;
+            --color-border: #EAEAEA;
+            --color-text-primary: #111111;
+            --color-text-secondary: #787774;
+            --color-text-tertiary: #B4B4B2;
 
-            /* Accent Colors */
-            --accent-cyan: #00d4ff;
-            --accent-violet: #a855f7;
-            --accent-pink: #ec4899;
-            --accent-blue: #3b82f6;
+            /* Muted Pastels (Accents Only) */
+            --accent-blue-bg: #E1F3FE;
+            --accent-blue-text: #1F6C9F;
+            --accent-green-bg: #EDF3EC;
+            --accent-green-text: #346538;
+            --accent-yellow-bg: #FBF3DB;
+            --accent-yellow-text: #956400;
+            --accent-red-bg: #FDEBEC;
+            --accent-red-text: #9F2F2D;
 
-            /* Text Colors */
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-
-            /* Effects */
-            --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
-            --glow-violet: 0 0 20px rgba(168, 85, 247, 0.3);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
-
-            /* Gradients */
-            --gradient-primary: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
-            --gradient-card: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(31, 37, 68, 0.8) 100%);
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Instrument Serif', 'Georgia', serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 
             /* Premium Easing */
-            --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            --space-4xl: 8rem;
         }
 
+        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
@@ -51,122 +61,114 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: var(--font-sans);
+            background-color: var(--color-canvas);
+            color: var(--color-text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            opacity: 0;
-            animation: pageLoad 0.6s var(--ease-premium) 0.1s forwards;
         }
 
-        @keyframes pageLoad {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        /* Ambient Background Layer */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(225, 243, 254, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(237, 243, 236, 0.25) 0%, transparent 50%);
+            pointer-events: none;
+            animation: ambient-drift 25s ease-in-out infinite;
         }
 
-        /* ========== ACCESSIBILITY: REDUCED MOTION ========== */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
+        @keyframes ambient-drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+        }
 
-            body {
-                animation: none;
-                opacity: 1;
-            }
+        /* Content Layer */
+        #app {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== TYPOGRAPHY ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
         }
 
         /* ========== NAVIGATION ========== */
         nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: rgba(10, 14, 39, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            left: 0;
+            right: 0;
             z-index: 1000;
-            transition: all 0.3s var(--ease-premium);
-            transform: translateY(0);
-        }
-
-        nav.scrolled {
-            background: rgba(10, 14, 39, 0.95);
-            box-shadow: var(--shadow-lg);
-            border-bottom-color: rgba(255, 255, 255, 0.12);
+            background: rgba(251, 251, 250, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            transition: all 400ms var(--ease-smooth);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            transition: transform 0.3s var(--ease-premium);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
+            color: var(--color-text-secondary);
             text-decoration: none;
-            color: var(--text-secondary);
+            font-size: 0.875rem;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s var(--ease-premium);
+            transition: color 300ms var(--ease-smooth);
             position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s var(--ease-premium);
         }
 
         .nav-links a:hover {
-            color: var(--accent-cyan);
-            transform: translateY(-2px);
+            color: var(--color-text-primary);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-cta {
+            background: var(--color-text-primary);
+            color: var(--color-surface);
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 200ms var(--ease-smooth);
+        }
+
+        .nav-cta:hover {
+            background: #333333;
+            transform: translateY(-1px);
+        }
+
+        .nav-cta:active {
+            transform: scale(0.98);
         }
 
         .menu-toggle {
@@ -174,32 +176,75 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            z-index: 1001;
         }
 
         .menu-toggle span {
-            width: 28px;
-            height: 3px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: all 0.3s var(--ease-premium);
+            width: 24px;
+            height: 2px;
+            background: var(--color-text-primary);
+            transition: all 300ms var(--ease-smooth);
         }
 
-        .menu-toggle:hover span {
-            background: var(--accent-cyan);
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--color-canvas);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
-            transform: translateX(20px);
+            pointer-events: none;
+            transition: opacity 400ms var(--ease-smooth);
         }
 
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu-links li {
+            margin: 1.5rem 0;
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: all 500ms var(--ease-smooth);
+        }
+
+        .mobile-menu.active .mobile-menu-links li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-links li:nth-child(1) { transition-delay: 50ms; }
+        .mobile-menu-links li:nth-child(2) { transition-delay: 100ms; }
+        .mobile-menu-links li:nth-child(3) { transition-delay: 150ms; }
+        .mobile-menu-links li:nth-child(4) { transition-delay: 200ms; }
+        .mobile-menu-links li:nth-child(5) { transition-delay: 250ms; }
+        .mobile-menu-links li:nth-child(6) { transition-delay: 300ms; }
+
+        .mobile-menu-links a {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: var(--space-4xl) var(--space-lg);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* ========== HERO SECTION ========== */
@@ -207,376 +252,319 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
-        }
-
-        /* Animated background particles */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(20px, -20px); }
-            50% { transform: translate(-20px, 20px); }
-            75% { transform: translate(20px, 10px); }
+            padding-top: 6rem;
         }
 
         .hero-content {
-            max-width: 1400px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--space-3xl);
             align-items: center;
-            z-index: 1;
         }
 
-        .hero-text {
-            opacity: 0;
-            animation: fadeInLeft 0.8s var(--ease-premium) 0.2s forwards;
-        }
-
-        .hero-greeting {
-            font-size: 1.3rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            opacity: 0;
-            animation: fadeInUp 0.6s var(--ease-premium) 0.3s forwards;
-        }
-
-        .hero-name {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 0.6s var(--ease-premium) 0.4s forwards;
-        }
-
-        /* Animated role text switcher */
-        .hero-role {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInUp 0.6s var(--ease-premium) 0.5s forwards;
-        }
-
-        .role-text {
+        .eyebrow {
             display: inline-block;
-            position: relative;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-text-secondary);
+            background: var(--accent-green-bg);
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: var(--space-lg);
+            font-weight: 500;
         }
 
-        .role-text::after {
-            content: '';
-            position: absolute;
-            right: -10px;
-            width: 2px;
-            height: 100%;
-            background: var(--accent-cyan);
-            animation: blink 1s infinite;
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 400;
+            margin-bottom: var(--space-md);
+            line-height: 1;
         }
 
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-xl);
+            max-width: 32rem;
         }
 
-        .hero-description {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            opacity: 0;
-            animation: fadeInUp 0.6s var(--ease-premium) 0.6s forwards;
-        }
-
-        .hero-buttons {
+        .btn-group {
             display: flex;
-            gap: 1.5rem;
+            gap: var(--space-md);
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 0.6s var(--ease-premium) 0.7s forwards;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
+            padding: 0.875rem 1.75rem;
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s var(--ease-premium);
+            font-size: 0.9375rem;
+            text-decoration: none;
+            border-radius: 6px;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
+            transition: all 200ms var(--ease-smooth);
+            border: 1px solid transparent;
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
-            color: var(--text-primary);
-            box-shadow: var(--shadow-md);
+            background: var(--color-text-primary);
+            color: var(--color-surface);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
+            background: #333333;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
         }
 
         .btn-secondary {
-            border: 2px solid var(--accent-cyan);
-            color: var(--accent-cyan);
             background: transparent;
+            border-color: var(--color-border);
+            color: var(--color-text-primary);
         }
 
         .btn-secondary:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Hero Image with Premium Glow Effect */
-        .hero-image {
-            position: relative;
-            opacity: 0;
-            animation: fadeInRight 0.8s var(--ease-premium) 0.4s forwards;
+            background: var(--color-surface);
+            border-color: var(--color-text-primary);
         }
 
         .hero-image-container {
             position: relative;
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
         }
 
         .hero-image-frame {
-            position: relative;
-            border-radius: 30px;
-            padding: 8px;
-            background: var(--gradient-primary);
-            box-shadow: var(--shadow-lg);
-            transition: all 0.4s var(--ease-premium);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--color-surface);
+            padding: 0.5rem;
+            transition: all 400ms var(--ease-smooth);
         }
 
         .hero-image-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 24px 64px rgba(0, 212, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
 
         .hero-image-frame img {
             width: 100%;
             height: auto;
-            border-radius: 24px;
+            border-radius: 8px;
             display: block;
-            object-fit: cover;
             aspect-ratio: 3/4;
-            transition: transform 0.4s var(--ease-premium);
+            object-fit: cover;
         }
 
-        .hero-image-frame:hover img {
-            transform: scale(1.05);
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-4xl);
+            padding-top: var(--space-4xl);
+            border-top: 1px solid var(--color-border);
         }
 
-        /* Floating decoration elements */
-        .hero-decoration {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-            z-index: 0;
+        .stat-card {
+            text-align: center;
+            padding: var(--space-lg);
+            transition: all 300ms var(--ease-smooth);
         }
 
-        .decoration-1 {
-            top: 10%;
-            left: 5%;
-            background: var(--accent-cyan);
-            animation: float-1 15s ease-in-out infinite;
+        .stat-card:hover {
+            transform: translateY(-4px);
         }
 
-        .decoration-2 {
-            bottom: 20%;
-            right: 10%;
-            background: var(--accent-violet);
-            animation: float-2 20s ease-in-out infinite;
-        }
-
-        @keyframes float-1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -50px) scale(1.2); }
-        }
-
-        @keyframes float-2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-40px, 30px) scale(1.1); }
-        }
-
-        /* ========== SECTION STYLES ========== */
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
+        .stat-number {
+            font-family: var(--font-serif);
             font-size: 3rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 400;
+            color: var(--color-text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
         }
 
         /* ========== ABOUT SECTION ========== */
         .about {
-            background: var(--bg-secondary);
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-image-container {
-            position: relative;
+            gap: var(--space-3xl);
+            align-items: start;
         }
 
         .about-image-frame {
-            position: relative;
-            border-radius: 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            border: 2px solid rgba(0, 212, 255, 0.15);
-            transition: all 0.4s var(--ease-premium);
+            background: var(--color-surface);
+            padding: 0.5rem;
+            transition: all 400ms var(--ease-smooth);
         }
 
         .about-image-frame:hover {
-            border-color: rgba(0, 212, 255, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
         }
 
         .about-image-frame img {
             width: 100%;
             height: auto;
+            border-radius: 8px;
             display: block;
+            aspect-ratio: 4/5;
             object-fit: cover;
-            transition: transform 0.6s var(--ease-premium);
-        }
-
-        .about-image-frame:hover img {
-            transform: scale(1.08);
         }
 
         .about-text h3 {
-            font-size: 2rem;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            margin-bottom: var(--space-lg);
+            font-weight: 400;
         }
 
         .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
         }
 
-        /* Stats Counter with Premium Motion */
-        .stats-grid {
+        /* ========== EXPERTISE BENTO GRID ========== */
+        .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-3xl);
         }
 
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s var(--ease-premium);
-            cursor: default;
+        .expertise-card {
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            background: var(--color-surface);
+            transition: all 300ms var(--ease-smooth);
         }
 
-        .stat-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 12px 32px rgba(0, 212, 255, 0.25);
-            background: var(--bg-card-hover);
+        .expertise-card:hover {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
         }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            transition: transform 0.3s var(--ease-premium);
+        .expertise-card:nth-child(1) {
+            grid-column: span 8;
         }
 
-        .stat-card:hover .stat-number {
-            transform: scale(1.1);
+        .expertise-card:nth-child(2) {
+            grid-column: span 4;
         }
 
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .expertise-card:nth-child(3) {
+            grid-column: span 4;
+        }
+
+        .expertise-card:nth-child(4) {
+            grid-column: span 5;
+        }
+
+        .expertise-card:nth-child(5) {
+            grid-column: span 7;
+        }
+
+        .expertise-card:nth-child(6) {
+            grid-column: span 12;
+        }
+
+        .expertise-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-blue-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-sm);
             font-weight: 500;
+            font-family: var(--font-sans);
         }
 
-        /* ========== EXPERIENCE SECTION ========== */
+        .expertise-card p {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.375rem 0.75rem;
+            background: var(--accent-yellow-bg);
+            color: var(--accent-yellow-text);
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 200ms var(--ease-smooth);
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* ========== EXPERIENCE TIMELINE ========== */
         .timeline {
+            margin-top: var(--space-3xl);
             position: relative;
-            padding-left: 4rem;
-            margin-top: 4rem;
+            padding-left: 3rem;
         }
 
         .timeline::before {
@@ -584,599 +572,341 @@
             position: absolute;
             left: 0;
             top: 0;
+            width: 1px;
             height: 100%;
-            width: 3px;
-            background: var(--gradient-primary);
-            opacity: 0.5;
+            background: var(--color-border);
         }
 
         .timeline-item {
+            margin-bottom: var(--space-3xl);
             position: relative;
-            margin-bottom: 4rem;
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.35s var(--ease-premium);
-            cursor: default;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(12px);
-            border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
-            background: var(--bg-card-hover);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -4.5rem;
-            top: 2.5rem;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-cyan);
+            left: -3.375rem;
+            top: 0.5rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: var(--color-text-primary);
+            border: 2px solid var(--color-canvas);
             border-radius: 50%;
-            border: 4px solid var(--bg-primary);
-            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
-            transition: all 0.3s var(--ease-premium);
         }
 
-        .timeline-item:hover::before {
-            transform: scale(1.2);
-            box-shadow: 0 0 0 8px rgba(0, 212, 255, 0.3);
+        .timeline-card {
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            background: var(--color-surface);
+            transition: all 300ms var(--ease-smooth);
+        }
+
+        .timeline-card:hover {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transform: translateX(8px);
         }
 
         .timeline-date {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--accent-cyan);
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s var(--ease-premium);
-        }
-
-        .timeline-item:hover .timeline-date {
-            background: rgba(0, 212, 255, 0.2);
-            transform: translateX(4px);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
         }
 
         .timeline-item h3 {
-            font-size: 1.8rem;
-            color: var(--text-primary);
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            transition: color 0.3s var(--ease-premium);
-        }
-
-        .timeline-item:hover h3 {
-            color: var(--accent-cyan);
+            font-weight: 500;
+            font-family: var(--font-sans);
         }
 
         .timeline-item h4 {
-            font-size: 1.2rem;
-            color: var(--accent-violet);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            color: var(--accent-blue-text);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+            font-family: var(--font-sans);
         }
 
         .timeline-item ul {
             list-style: none;
-            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
         }
 
         .timeline-item li {
             position: relative;
-            padding-left: 2rem;
-            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.75rem;
             line-height: 1.6;
-            transition: all 0.25s var(--ease-premium);
-        }
-
-        .timeline-item li:hover {
-            color: var(--text-primary);
-            transform: translateX(4px);
         }
 
         .timeline-item li::before {
-            content: '▹';
+            content: '—';
             position: absolute;
             left: 0;
-            color: var(--accent-cyan);
-            font-size: 1.2rem;
-            transition: transform 0.25s var(--ease-premium);
+            color: var(--color-text-tertiary);
         }
 
-        .timeline-item li:hover::before {
-            transform: translateX(4px);
-        }
-
-        /* Tools Used Tags with Premium Interaction */
-        .tools-used {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .tool-tag {
-            padding: 0.4rem 1rem;
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(168, 85, 247, 0.25);
-            color: var(--accent-violet);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s var(--ease-premium);
-            cursor: default;
-        }
-
-        .tool-tag:hover {
-            background: rgba(168, 85, 247, 0.2);
-            border-color: rgba(168, 85, 247, 0.5);
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
-        }
-
-        /* ========== SKILLS SECTION ========== */
-        .skills {
-            background: var(--bg-secondary);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.35s var(--ease-premium);
-            position: relative;
-            overflow: hidden;
-            cursor: default;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s var(--ease-premium);
-        }
-
-        .skill-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 16px 48px rgba(0, 212, 255, 0.25);
-            background: var(--bg-card-hover);
-        }
-
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.35s var(--ease-premium);
-        }
-
-        .skill-card:hover .skill-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
-        }
-
-        .skill-card h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            transition: color 0.3s var(--ease-premium);
-        }
-
-        .skill-card:hover h3 {
-            color: var(--accent-cyan);
-        }
-
-        .skill-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .skill-items {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-badge {
-            padding: 0.5rem 1rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.25);
-            color: var(--accent-cyan);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s var(--ease-premium);
-            cursor: default;
-        }
-
-        .skill-badge:hover {
-            background: rgba(0, 212, 255, 0.2);
-            border-color: rgba(0, 212, 255, 0.5);
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.25);
-        }
-
-        /* ========== CERTIFICATIONS SECTION ========== */
-        .certifications {
-            background: var(--bg-primary);
-        }
-
+        /* ========== CERTIFICATIONS ========== */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: var(--space-lg);
+            margin-top: var(--space-3xl);
         }
 
         .cert-card {
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            background: var(--color-surface);
             text-align: center;
-            transition: all 0.35s var(--ease-premium);
-            cursor: default;
+            transition: all 300ms var(--ease-smooth);
         }
 
         .cert-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(168, 85, 247, 0.4);
-            box-shadow: 0 16px 48px rgba(168, 85, 247, 0.3);
-            background: var(--bg-card-hover);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
         }
 
         .cert-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            background: var(--accent-green-bg);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
             font-size: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.35s var(--ease-premium);
-        }
-
-        .cert-card:hover .cert-icon {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5);
+            margin: 0 auto var(--space-md);
         }
 
         .cert-card h3 {
-            font-size: 1.3rem;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-            transition: color 0.3s var(--ease-premium);
-        }
-
-        .cert-card:hover h3 {
-            color: var(--accent-violet);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-family: var(--font-sans);
         }
 
         .cert-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
         }
 
         .cert-badge {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.375rem 0.875rem;
+            background: var(--accent-green-bg);
+            color: var(--accent-green-text);
+            border-radius: 9999px;
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1.5rem;
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            color: var(--accent-violet);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s var(--ease-premium);
-        }
-
-        .cert-card:hover .cert-badge {
-            background: rgba(168, 85, 247, 0.2);
-            transform: scale(1.05);
+            font-weight: 500;
+            margin-top: var(--space-sm);
         }
 
         /* ========== CONTACT SECTION ========== */
         .contact {
-            background: var(--bg-secondary);
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            gap: 5rem;
-            align-items: start;
+            gap: var(--space-3xl);
+            margin-top: var(--space-3xl);
         }
 
         .contact-info h3 {
-            font-size: 2rem;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            font-weight: 400;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s var(--ease-premium);
-            cursor: pointer;
+            align-items: start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all 300ms var(--ease-smooth);
         }
 
         .contact-item:hover {
-            transform: translateX(12px);
-            border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.2);
-            background: var(--bg-card-hover);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transform: translateX(4px);
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--accent-blue-bg);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             flex-shrink: 0;
-            box-shadow: var(--shadow-md);
-            transition: all 0.35s var(--ease-premium);
         }
 
-        .contact-item:hover .contact-icon {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
+        .contact-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-family: var(--font-sans);
         }
 
-        .contact-item-content h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-            font-size: 1.1rem;
-            transition: color 0.3s var(--ease-premium);
-        }
-
-        .contact-item:hover .contact-item-content h4 {
-            color: var(--accent-cyan);
-        }
-
-        .contact-item-content a,
-        .contact-item-content p {
-            color: var(--text-muted);
+        .contact-text a,
+        .contact-text p {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
             text-decoration: none;
-            transition: color 0.3s var(--ease-premium);
         }
 
-        .contact-item-content a:hover {
-            color: var(--accent-cyan);
+        .contact-text a:hover {
+            color: var(--accent-blue-text);
         }
 
-        /* Contact Form with Premium Interactions */
         .contact-form {
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: border-color 0.3s var(--ease-premium);
-        }
-
-        .contact-form:focus-within {
-            border-color: rgba(0, 212, 255, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            background: var(--color-surface);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-lg);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
-            color: var(--text-primary);
+            font-size: 0.875rem;
             font-weight: 600;
-            transition: color 0.3s var(--ease-premium);
-        }
-
-        .form-group:focus-within label {
-            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            color: var(--color-text-primary);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem 1.5rem;
-            background: var(--bg-secondary);
-            border: 2px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s var(--ease-premium);
+            padding: 0.75rem 1rem;
+            background: var(--color-canvas);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.9375rem;
+            transition: all 300ms var(--ease-smooth);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
-            transform: translateY(-2px);
+            border-color: var(--color-text-primary);
+            background: var(--color-surface);
         }
 
         .form-group textarea {
-            resize: vertical;
             min-height: 150px;
+            resize: vertical;
         }
 
         .btn-submit {
             width: 100%;
-            padding: 1.2rem;
-            background: var(--gradient-primary);
-            color: var(--text-primary);
+            padding: 0.875rem 1.75rem;
+            background: var(--color-text-primary);
+            color: var(--color-surface);
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9375rem;
             cursor: pointer;
-            transition: all 0.3s var(--ease-premium);
-            box-shadow: var(--shadow-md);
+            transition: all 200ms var(--ease-smooth);
         }
 
         .btn-submit:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 212, 255, 0.4);
+            background: #333333;
+            transform: translateY(-2px);
         }
 
         .btn-submit:active {
-            transform: translateY(-2px) scale(0.98);
+            transform: scale(0.98);
         }
 
         /* ========== FOOTER ========== */
         footer {
-            background: var(--bg-primary);
-            padding: 3rem 2rem;
+            padding: var(--space-3xl) var(--space-lg);
+            border-top: 1px solid var(--color-border);
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
         }
 
         .social-link {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             text-decoration: none;
-            font-size: 1.3rem;
-            transition: all 0.3s var(--ease-premium);
+            font-size: 1.125rem;
+            transition: all 200ms var(--ease-smooth);
         }
 
         .social-link:hover {
-            background: var(--gradient-primary);
-            color: var(--text-primary);
-            transform: translateY(-6px) scale(1.1);
-            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
-            border-color: transparent;
-        }
-
-        .social-link:active {
-            transform: translateY(-4px) scale(1.05);
+            background: var(--color-text-primary);
+            color: var(--color-surface);
+            border-color: var(--color-text-primary);
+            transform: translateY(-2px);
         }
 
         footer p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
         }
 
-        /* ========== PREMIUM ENTRANCE ANIMATIONS ========== */
-        @keyframes fadeInLeft {
-            from {
+        /* ========== SCROLL REVEAL ANIMATIONS ========== */
+        @media (prefers-reduced-motion: no-preference) {
+            .scroll-reveal {
                 opacity: 0;
-                transform: translateX(-32px);
+                transform: translateY(12px);
+                transition: all 600ms var(--ease-smooth);
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(32px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            to {
+            .scroll-reveal.revealed {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Staggered Reveal Animation */
-        .stagger-item {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
-        }
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-reveal {
+                opacity: 1;
+                transform: none;
+            }
 
-        .stagger-item.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Apply stagger delays */
-        .stagger-item:nth-child(1) { transition-delay: 0.05s; }
-        .stagger-item:nth-child(2) { transition-delay: 0.1s; }
-        .stagger-item:nth-child(3) { transition-delay: 0.15s; }
-        .stagger-item:nth-child(4) { transition-delay: 0.2s; }
-        .stagger-item:nth-child(5) { transition-delay: 0.25s; }
-        .stagger-item:nth-child(6) { transition-delay: 0.3s; }
-
-        /* ========== SCROLL REVEAL ========== */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
+            body::before {
+                animation: none;
+            }
         }
 
         /* ========== RESPONSIVE DESIGN ========== */
@@ -1185,64 +915,15 @@
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-name {
-                font-size: 3.5rem;
-            }
-
-            .hero-role {
-                font-size: 1.5rem;
-            }
-
-            .timeline {
-                padding-left: 3rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 100%;
-                height: 100vh;
-                background: var(--bg-primary);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: right 0.4s var(--ease-premium);
-                backdrop-filter: blur(20px);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero-name {
-                font-size: 2.5rem;
-            }
-
-            .hero-role {
-                font-size: 1.3rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
+                gap: var(--space-xl);
             }
 
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+            }
+
+            .expertise-card {
+                grid-column: span 12 !important;
             }
 
             .timeline {
@@ -1250,12 +931,33 @@
             }
 
             .timeline-item::before {
-                left: -3rem;
+                left: -2.375rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: var(--space-3xl) var(--space-md);
             }
 
-            .skills-grid,
-            .cert-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding-top: 5rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
             }
 
             .btn {
@@ -1263,393 +965,432 @@
                 justify-content: center;
             }
 
-            .contact-form {
-                padding: 2rem;
+            .cert-grid {
+                grid-template-columns: 1fr;
             }
+        }
+
+        /* ========== UTILITY CLASSES ========== */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
     </style>
 </head>
 <body>
-    <!-- ========== NAVIGATION ========== -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Paulo Penaflor</div>
-            <ul class="nav-links" id="navLinks">
+    <div id="app">
+        <!-- ========== NAVIGATION ========== -->
+        <nav>
+            <div class="nav-container">
+                <div class="nav-logo">Paulo Peñaflor</div>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact" class="nav-cta">Contact</a></li>
+                </ul>
+
+                <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
-    </nav>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section class="hero" id="home">
-        <div class="hero-decoration decoration-1"></div>
-        <div class="hero-decoration decoration-2"></div>
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="eyebrow">Available for New Projects</span>
 
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-greeting">👋 Hello, I'm</div>
-                <h1 class="hero-name">Paulo Penaflor</h1>
-                <div class="hero-role">
-                    <span class="role-text" id="roleText">Virtual Assistant</span>
-                </div>
-                <p class="hero-description">
-                    Digital Communication Specialist with over 3 years of professional experience in virtual assistance and customer engagement. Specialized in AI-powered workflows, digital marketing, and delivering exceptional administrative support that drives results.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#experience" class="btn btn-secondary">Explore Experience</a>
-                </div>
-            </div>
+                        <h1 class="hero-title">
+                            Virtual Assistant & AI-Powered Marketing Specialist
+                        </h1>
 
-            <div class="hero-image">
-                <div class="hero-image-container">
-                    <div class="hero-image-frame">
-                        <!-- MAIN HERO PHOTO: Replace with your photo path -->
-                        <img src="5.jpg"
-                             alt="Paulo Penaflor - Virtual Assistant"
-                             id="heroPhoto">
+                        <p class="hero-subtitle">
+                            Paulo Valeroso Peñaflor brings three years of experience in virtual assistance and digital communication, specializing in AI-powered workflows and customer engagement strategies.
+                        </p>
+
+                        <div class="btn-group">
+                            <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+                            <a href="#expertise" class="btn btn-secondary">View Services</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========== ABOUT SECTION ========== -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">About Me</h2>
-            <p class="section-subtitle scroll-reveal">Passionate professional dedicated to excellence</p>
-
-            <div class="about-content">
-                <div class="about-image-container scroll-reveal">
-                    <div class="about-image-frame">
-                        <!-- ABOUT SECTION PHOTO: Replace with your photo path -->
-                        <img src="1.jpg"
-                             alt="About Paulo Penaflor"
-                             id="aboutPhoto">
+                    <div class="hero-image-container">
+                        <div class="hero-image-frame">
+                            <img src="5.jpg" alt="Paulo Valeroso Peñaflor">
+                        </div>
                     </div>
                 </div>
 
-                <div class="about-text scroll-reveal">
-                    <h3>Virtual Assistant & Digital Communication Specialist</h3>
-                    <p>
-                        With over 3 years of combined professional experience, I bring a unique blend of virtual assistance expertise and digital communication mastery. My journey in the digital workspace has equipped me with the skills to seamlessly manage administrative tasks, engage customers effectively, and leverage cutting-edge AI tools to optimize workflows.
-                    </p>
-                    <p>
-                        At One Up Media, I've honed my abilities in providing top-tier virtual assistance, managing complex schedules, coordinating projects, and ensuring smooth operations. My background as a Communication Specialist has sharpened my customer relations skills, enabling me to build meaningful connections and deliver outstanding service experiences.
-                    </p>
-                    <p>
-                        I'm passionate about staying ahead of technology trends, particularly in AI-powered marketing and automation. My certifications in AI-Powered Performance Ads and Shopping Ads from Skillshop demonstrate my commitment to continuous learning and applying innovative solutions to drive business success.
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card scroll-reveal">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+
+                    <div class="stat-card scroll-reveal">
+                        <div class="stat-number" data-target="46">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+
+                    <div class="stat-card scroll-reveal">
+                        <div class="stat-number" data-target="30">0</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ABOUT SECTION ========== -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">About</h2>
+                    <p class="section-subtitle">
+                        Combining technical expertise with exceptional communication skills to deliver results
                     </p>
                 </div>
-            </div>
 
-            <!-- Stats Counter -->
-            <div class="stats-grid">
-                <div class="stat-card stagger-item">
-                    <div class="stat-number" data-target="3">0</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card stagger-item">
-                    <div class="stat-number" data-target="46">0</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-card stagger-item">
-                    <div class="stat-number" data-target="30">0</div>
-                    <div class="stat-label">Happy Clients</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== EXPERIENCE SECTION ========== -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Professional Experience</h2>
-            <p class="section-subtitle scroll-reveal">My career journey and achievements</p>
-
-            <div class="timeline">
-                <!-- Experience 1 -->
-                <div class="timeline-item scroll-reveal">
-                    <span class="timeline-date">2023 - Present</span>
-                    <h3>Virtual Assistant</h3>
-                    <h4>One Up Media</h4>
-                    <ul>
-                        <li>Manage executive calendars, scheduling meetings, and coordinating appointments across multiple time zones</li>
-                        <li>Handle email correspondence, prioritize communications, and maintain organized inbox management systems</li>
-                        <li>Conduct research, prepare reports, and compile data for business development initiatives</li>
-                        <li>Coordinate travel arrangements, expense tracking, and administrative documentation</li>
-                        <li>Implement AI-driven workflow automation tools, increasing productivity by 40%</li>
-                        <li>Support digital marketing campaigns through social media management and content scheduling</li>
-                    </ul>
-                    <div class="tools-used">
-                        <span class="tool-tag">Google Workspace</span>
-                        <span class="tool-tag">Trello</span>
-                        <span class="tool-tag">Slack</span>
-                        <span class="tool-tag">Asana</span>
-                        <span class="tool-tag">Zoom</span>
+                <div class="about-content">
+                    <div class="about-image scroll-reveal">
+                        <div class="about-image-frame">
+                            <img src="1.jpg" alt="Paulo at work">
+                        </div>
                     </div>
-                </div>
 
-                <!-- Experience 2 -->
-                <div class="timeline-item scroll-reveal">
-                    <span class="timeline-date">2021 - 2023</span>
-                    <h3>Communication Specialist / Chatter</h3>
-                    <h4>Digital Communication Services</h4>
-                    <ul>
-                        <li>Engaged with over 500+ clients through professional digital communication channels</li>
-                        <li>Built strong customer relationships resulting in 95% satisfaction rate and increased retention</li>
-                        <li>Managed multi-platform customer interactions including chat, email, and social media</li>
-                        <li>Developed personalized communication strategies to enhance customer experience</li>
-                        <li>Collaborated with marketing teams to refine messaging and improve engagement metrics</li>
-                        <li>Trained new team members on best practices for professional digital communication</li>
-                    </ul>
-                    <div class="tools-used">
-                        <span class="tool-tag">CRM Systems</span>
-                        <span class="tool-tag">Live Chat</span>
-                        <span class="tool-tag">Email Marketing</span>
-                        <span class="tool-tag">Social Media</span>
+                    <div class="about-text scroll-reveal">
+                        <h3>Virtual Assistant & Digital Communication Expert</h3>
+
+                        <p>
+                            With over three years of combined professional experience, I bring expertise in virtual assistance and digital communication. My work at One Up Media has equipped me with the skills to manage complex schedules, coordinate projects, and implement AI-driven workflow automation that increases productivity by 40%.
+                        </p>
+
+                        <p>
+                            My background as a Communication Specialist has sharpened my customer relations skills, enabling me to build meaningful connections and deliver outstanding service experiences. I have engaged with over 500 clients through professional digital communication channels, achieving a 95% satisfaction rate.
+                        </p>
+
+                        <p>
+                            I stay current with technology trends, particularly in AI-powered marketing and automation. My Google Skillshop certifications in AI-Powered Performance Ads and Shopping Ads demonstrate my commitment to applying innovative solutions that drive business success.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== SKILLS SECTION ========== -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Skills & Expertise</h2>
-            <p class="section-subtitle scroll-reveal">Tools and capabilities I bring to the table</p>
-
-            <div class="skills-grid">
-                <div class="skill-card stagger-item">
-                    <div class="skill-icon">📋</div>
-                    <h3>Administrative Support</h3>
-                    <p>Comprehensive virtual assistance including calendar management, email handling, travel coordination, and project organization.</p>
-                    <div class="skill-items">
-                        <span class="skill-badge">Calendar Management</span>
-                        <span class="skill-badge">Email Management</span>
-                        <span class="skill-badge">Documentation</span>
-                        <span class="skill-badge">Research</span>
-                    </div>
+        <!-- ========== EXPERTISE SECTION ========== -->
+        <section class="expertise" id="expertise">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Core Services</h2>
+                    <p class="section-subtitle">
+                        Comprehensive support across administrative operations, digital marketing, and customer engagement
+                    </p>
                 </div>
 
-                <div class="skill-card stagger-item">
-                    <div class="skill-icon">💬</div>
-                    <h3>Digital Communication</h3>
-                    <p>Expert in professional customer engagement, relationship building, and multi-channel communication strategies.</p>
-                    <div class="skill-items">
-                        <span class="skill-badge">Customer Relations</span>
-                        <span class="skill-badge">Chat Support</span>
-                        <span class="skill-badge">Email Writing</span>
-                        <span class="skill-badge">Social Media</span>
+                <div class="expertise-grid">
+                    <div class="expertise-card scroll-reveal">
+                        <div class="expertise-icon">📋</div>
+                        <h3>Administrative Operations</h3>
+                        <p>Comprehensive virtual assistance including calendar management, email coordination, travel arrangements, and project organization. I handle administrative operations that keep businesses running smoothly across multiple time zones.</p>
+                        <div class="expertise-tags">
+                            <span class="tag">Calendar Management</span>
+                            <span class="tag">Email Coordination</span>
+                            <span class="tag">Documentation</span>
+                            <span class="tag">Research</span>
+                            <span class="tag">Project Management</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-card stagger-item">
-                    <div class="skill-icon">🤖</div>
-                    <h3>AI-Powered Marketing</h3>
-                    <p>Certified in AI-driven advertising strategies including performance ads and shopping campaigns optimization.</p>
-                    <div class="skill-items">
-                        <span class="skill-badge">Performance Ads</span>
-                        <span class="skill-badge">Shopping Ads</span>
-                        <span class="skill-badge">Campaign Optimization</span>
-                        <span class="skill-badge">Analytics</span>
+                    <div class="expertise-card scroll-reveal">
+                        <div class="expertise-icon">💬</div>
+                        <h3>Digital Communication</h3>
+                        <p>Expert customer engagement and relationship building across multiple channels with proven results.</p>
+                        <div class="expertise-tags">
+                            <span class="tag">Customer Relations</span>
+                            <span class="tag">Chat Support</span>
+                            <span class="tag">Social Media</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-card stagger-item">
-                    <div class="skill-icon">🎯</div>
-                    <h3>Customer Relations</h3>
-                    <p>Building meaningful connections and delivering exceptional service experiences that drive customer satisfaction.</p>
-                    <div class="skill-items">
-                        <span class="skill-badge">Client Management</span>
-                        <span class="skill-badge">Problem Solving</span>
-                        <span class="skill-badge">Engagement</span>
-                        <span class="skill-badge">Retention</span>
+                    <div class="expertise-card scroll-reveal">
+                        <div class="expertise-icon">🤖</div>
+                        <h3>AI Marketing</h3>
+                        <p>Google Skillshop certified in AI-driven advertising strategies and campaign optimization.</p>
+                        <div class="expertise-tags">
+                            <span class="tag">Performance Ads</span>
+                            <span class="tag">Shopping Ads</span>
+                            <span class="tag">Analytics</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-card stagger-item">
-                    <div class="skill-icon">⚡</div>
-                    <h3>Workflow Automation</h3>
-                    <p>Implementing AI tools and automation systems to streamline processes and increase operational efficiency.</p>
-                    <div class="skill-items">
-                        <span class="skill-badge">Process Optimization</span>
-                        <span class="skill-badge">AI Tools</span>
-                        <span class="skill-badge">Task Automation</span>
-                        <span class="skill-badge">Efficiency</span>
+                    <div class="expertise-card scroll-reveal">
+                        <div class="expertise-icon">🎯</div>
+                        <h3>Customer Success</h3>
+                        <p>Building meaningful connections that drive satisfaction and long-term retention.</p>
+                        <div class="expertise-tags">
+                            <span class="tag">Client Management</span>
+                            <span class="tag">Problem Solving</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-card stagger-item">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>Tech Tools Proficiency</h3>
-                    <p>Advanced knowledge of digital productivity tools, workspace platforms, and project management software.</p>
-                    <div class="skill-items">
-                        <span class="skill-badge">Google Workspace</span>
-                        <span class="skill-badge">Trello</span>
-                        <span class="skill-badge">Asana</span>
-                        <span class="skill-badge">PDF Management</span>
+                    <div class="expertise-card scroll-reveal">
+                        <div class="expertise-icon">⚡</div>
+                        <h3>Workflow Automation</h3>
+                        <p>Implementing AI tools to streamline processes and increase operational efficiency by 40%.</p>
+                        <div class="expertise-tags">
+                            <span class="tag">Process Optimization</span>
+                            <span class="tag">AI Tools</span>
+                            <span class="tag">Task Automation</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card scroll-reveal">
+                        <div class="expertise-icon">🛠</div>
+                        <h3>Productivity Tools</h3>
+                        <p>Advanced proficiency in Google Workspace, Trello, Asana, Slack, Zoom, and project management platforms.</p>
+                        <div class="expertise-tags">
+                            <span class="tag">Google Workspace</span>
+                            <span class="tag">Trello</span>
+                            <span class="tag">Asana</span>
+                            <span class="tag">Slack</span>
+                            <span class="tag">Zoom</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== CERTIFICATIONS SECTION ========== -->
-    <section class="certifications" id="certifications">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Certifications</h2>
-            <p class="section-subtitle scroll-reveal">Professional credentials and achievements</p>
-
-            <div class="cert-grid">
-                <div class="cert-card stagger-item">
-                    <div class="cert-icon">🚀</div>
-                    <h3>AI-Powered Performance Ads</h3>
-                    <p>Google Skillshop Certification</p>
-                    <span class="cert-badge">Certified 2024</span>
+        <!-- ========== EXPERIENCE SECTION ========== -->
+        <section class="experience" id="experience">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">
+                        Professional background across virtual assistance and digital communication
+                    </p>
                 </div>
 
-                <div class="cert-card stagger-item">
-                    <div class="cert-icon">🛍️</div>
-                    <h3>AI-Powered Shopping Ads</h3>
-                    <p>Google Skillshop Certification</p>
-                    <span class="cert-badge">Certified 2024</span>
-                </div>
+                <div class="timeline">
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-card">
+                            <div class="timeline-date">2023 — Present</div>
+                            <h3>Virtual Assistant</h3>
+                            <h4>One Up Media</h4>
+                            <ul>
+                                <li>Manage executive calendars and coordinate appointments across multiple time zones</li>
+                                <li>Handle email correspondence and maintain organized inbox management systems</li>
+                                <li>Conduct research and prepare reports for business development initiatives</li>
+                                <li>Coordinate travel arrangements, expense tracking, and administrative documentation</li>
+                                <li>Implement AI-driven workflow automation tools, increasing productivity by 40%</li>
+                                <li>Support digital marketing campaigns through social media management</li>
+                            </ul>
+                            <div class="expertise-tags">
+                                <span class="tag">Google Workspace</span>
+                                <span class="tag">Trello</span>
+                                <span class="tag">Slack</span>
+                                <span class="tag">Asana</span>
+                                <span class="tag">Zoom</span>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="cert-card stagger-item">
-                    <div class="cert-icon">💼</div>
-                    <h3>Virtual Assistant Professional</h3>
-                    <p>3+ years hands-on experience</p>
-                    <span class="cert-badge">One Up Media</span>
-                </div>
-
-                <div class="cert-card stagger-item">
-                    <div class="cert-icon">📱</div>
-                    <h3>Digital Communication Specialist</h3>
-                    <p>2+ years specialized experience</p>
-                    <span class="cert-badge">Professional</span>
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-card">
+                            <div class="timeline-date">2021 — 2023</div>
+                            <h3>Communication Specialist</h3>
+                            <h4>Digital Communication Services</h4>
+                            <ul>
+                                <li>Engaged with over 500 clients through professional digital channels</li>
+                                <li>Built strong customer relationships resulting in 95% satisfaction rate</li>
+                                <li>Managed multi-platform customer interactions including chat and email</li>
+                                <li>Developed personalized communication strategies to enhance experience</li>
+                                <li>Collaborated with marketing teams to refine messaging and engagement</li>
+                                <li>Trained new team members on digital communication best practices</li>
+                            </ul>
+                            <div class="expertise-tags">
+                                <span class="tag">CRM Systems</span>
+                                <span class="tag">Live Chat</span>
+                                <span class="tag">Email Marketing</span>
+                                <span class="tag">Social Media</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== CONTACT SECTION ========== -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Get In Touch</h2>
-            <p class="section-subtitle scroll-reveal">Let's work together on your next project</p>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3 class="scroll-reveal">Contact Information</h3>
-
-                    <div class="contact-item scroll-reveal">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-item-content">
-                            <h4>Email</h4>
-                            <a href="mailto:paulopenaflor55@gmail.com">paulopenaflor55@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item scroll-reveal">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-item-content">
-                            <h4>Location</h4>
-                            <p>Available for Remote Work</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item scroll-reveal">
-                        <div class="contact-icon">💼</div>
-                        <div class="contact-item-content">
-                            <h4>Availability</h4>
-                            <p>Open to New Opportunities</p>
-                        </div>
-                    </div>
+        <!-- ========== CERTIFICATIONS SECTION ========== -->
+        <section class="certifications" id="certifications">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Certifications</h2>
+                    <p class="section-subtitle">
+                        Professional credentials from Google Skillshop
+                    </p>
                 </div>
 
-                <div class="contact-form scroll-reveal">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
+                <div class="cert-grid">
+                    <div class="cert-card scroll-reveal">
+                        <div class="cert-icon">🚀</div>
+                        <h3>AI-Powered Performance Ads</h3>
+                        <p>Google Skillshop Certification</p>
+                        <span class="cert-badge">Certified 2024</span>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                    <div class="cert-card scroll-reveal">
+                        <div class="cert-icon">🛍</div>
+                        <h3>AI-Powered Shopping Ads</h3>
+                        <p>Google Skillshop Certification</p>
+                        <span class="cert-badge">Certified 2024</span>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
+                    <div class="cert-card scroll-reveal">
+                        <div class="cert-icon">💼</div>
+                        <h3>Virtual Assistant Professional</h3>
+                        <p>Three years hands-on experience</p>
+                        <span class="cert-badge">One Up Media</span>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-submit">Send Message</button>
-                    </form>
+                    <div class="cert-card scroll-reveal">
+                        <div class="cert-icon">📱</div>
+                        <h3>Digital Communication Specialist</h3>
+                        <p>Two years specialized experience</p>
+                        <span class="cert-badge">Professional</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="social-links">
-            <a href="https://linkedin.com" class="social-link" target="_blank" aria-label="LinkedIn">💼</a>
-            <a href="mailto:paulopenaflor55@gmail.com" class="social-link" aria-label="Email">📧</a>
-            <a href="https://github.com" class="social-link" target="_blank" aria-label="GitHub">💻</a>
-            <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">🐦</a>
-        </div>
-        <p>&copy; 2026 Paulo Penaflor. All rights reserved. | Virtual Assistant & Digital Communication Specialist</p>
-    </footer>
+        <!-- ========== CONTACT SECTION ========== -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-subtitle">
+                        Discuss how I can support your business operations
+                    </p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info scroll-reveal">
+                        <h3>Contact Information</h3>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:paulopenaflor55@gmail.com">paulopenaflor55@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Available for Remote Work</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-text">
+                                <h4>Availability</h4>
+                                <p>Open to New Opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form scroll-reveal">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
+                    <a href="mailto:paulopenaflor55@gmail.com" class="social-link" aria-label="Email">📧</a>
+                    <a href="https://github.com" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">💻</a>
+                    <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+                </div>
+
+                <p>2026 Paulo Valeroso Peñaflor. Virtual Assistant & Digital Marketing Specialist</p>
+            </div>
+        </footer>
+    </div>
 
     <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // ========== MOBILE MENU TOGGLE ==========
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+        const mobileMenu = document.getElementById('mobileMenu');
 
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        // Close menu on link click
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
 
-        // ========== NAVBAR SCROLL EFFECT ==========
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // ========== SMOOTH SCROLLING ==========
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1663,119 +1404,53 @@
             });
         });
 
-        // ========== ANIMATED ROLE TEXT SWITCHER ==========
-        const roles = [
-            'Virtual Assistant',
-            'Communication Specialist',
-            'AI Tools Enthusiast',
-            'Digital Marketing Expert',
-            'Customer Relations Pro'
-        ];
+        // Scroll Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
 
-        let roleIndex = 0;
-        const roleText = document.getElementById('roleText');
-
-        function typeWriter(text, i, fnCallback) {
-            if (i < text.length) {
-                roleText.innerHTML = text.substring(0, i + 1);
-                setTimeout(() => typeWriter(text, i + 1, fnCallback), 100);
-            } else {
-                setTimeout(fnCallback, 2000);
-            }
-        }
-
-        function deleteText(fnCallback) {
-            const currentText = roleText.innerHTML;
-            if (currentText.length > 0) {
-                roleText.innerHTML = currentText.substring(0, currentText.length - 1);
-                setTimeout(() => deleteText(fnCallback), 50);
-            } else {
-                fnCallback();
-            }
-        }
-
-        function startRoleAnimation() {
-            deleteText(() => {
-                roleIndex = (roleIndex + 1) % roles.length;
-                typeWriter(roles[roleIndex], 0, startRoleAnimation);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
             });
-        }
-
-        // Start role animation after initial delay
-        setTimeout(() => startRoleAnimation(), 3000);
-
-        // ========== SCROLL REVEAL ANIMATIONS ==========
-        const scrollRevealObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                    }
-                });
-            },
-            {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            }
-        );
+        }, observerOptions);
 
         document.querySelectorAll('.scroll-reveal').forEach(el => {
-            scrollRevealObserver.observe(el);
+            observer.observe(el);
         });
 
-        // ========== STAGGERED ANIMATION FOR GRID ITEMS ==========
-        const staggerObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                    }
-                });
-            },
-            {
-                threshold: 0.15,
-                rootMargin: '0px 0px -80px 0px'
-            }
-        );
+        // Stats Counter Animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const increment = target / 60;
+                    let count = 0;
 
-        document.querySelectorAll('.stagger-item').forEach(el => {
-            staggerObserver.observe(el);
-        });
+                    const updateCounter = () => {
+                        count += increment;
+                        if (count < target) {
+                            entry.target.textContent = Math.ceil(count);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            entry.target.textContent = target + '+';
+                        }
+                    };
 
-        // ========== STATS COUNTER ANIMATION ==========
-        const statsObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = parseInt(entry.target.getAttribute('data-target'));
-                        let count = 0;
-                        const increment = target / 50;
-
-                        const updateCount = () => {
-                            count += increment;
-                            if (count < target) {
-                                entry.target.innerText = Math.ceil(count) + '+';
-                                setTimeout(updateCount, 30);
-                            } else {
-                                entry.target.innerText = target + '+';
-                            }
-                        };
-
-                        updateCount();
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.5
-            }
-        );
+                    updateCounter();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
 
         document.querySelectorAll('.stat-number').forEach(el => {
             statsObserver.observe(el);
         });
 
-        // ========== CONTACT FORM HANDLING ==========
+        // Contact Form Handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -1785,16 +1460,12 @@
             const subject = formData.get('subject');
             const message = formData.get('message');
 
-            // Create mailto link
             const mailtoLink = `mailto:paulopenaflor55@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
 
-            // Open email client
             window.location.href = mailtoLink;
 
-            // Show success message
-            alert('Thank you for reaching out! Your email client will open to send the message.');
+            alert('Your email client will open to send the message.');
 
-            // Reset form
             this.reset();
         });
     </script>
